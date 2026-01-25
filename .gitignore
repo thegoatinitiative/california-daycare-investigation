@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+
+# Large raw data files (too big for GitHub)
+ppp_150k_plus.csv
+ppp_under_150k_part1.csv
+
+# Raw source data (can be re-downloaded from CA data portal)
+child-care-centers.csv
+family-child-care-homes.csv
+adult-residential-facilities.csv
+residential-care-facilities-for-the-elderly.csv
+home-care-organization.csv
+foster-family-agencies.csv
+24-hour-residential-care-for-children.csv
+datapackage.json

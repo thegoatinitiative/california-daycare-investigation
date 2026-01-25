@@ -1,0 +1,124 @@
+CALIFORNIA PUBLIC RECORDS ACT REQUEST
+=====================================
+
+TO: California Department of Social Services
+    Community Care Licensing Division
+    744 P Street, MS 8-17-17
+    Sacramento, CA 95814
+
+    Email: OfficeoftheLegislativeandConstituent@dss.ca.gov
+
+    (Or submit online at: https://www.cdss.ca.gov/inforesources/public-records-request)
+
+FROM: [YOUR NAME]
+      [YOUR ADDRESS]
+      [YOUR EMAIL]
+      [YOUR PHONE]
+
+DATE: [DATE]
+
+RE: California Public Records Act Request - Community Care Licensing Data
+
+Dear Public Records Officer:
+
+Pursuant to the California Public Records Act (Government Code Section 6250 et seq.),
+I am requesting access to the following records:
+
+1. CHILD AND ADULT CARE FOOD PROGRAM (CACFP) DATA
+   - Complete list of all childcare facilities participating in CACFP
+   - CACFP reimbursement amounts by facility for fiscal years 2019-2024
+   - Meal counts claimed by facility for fiscal years 2019-2024
+   - Dates of CACFP enrollment and termination for each facility
+
+2. INSPECTION AND VIOLATION DATA
+   - All inspection reports (Facility Evaluation Reports) for childcare facilities
+     statewide from January 2019 to present
+   - All complaint investigation reports (LIC 9099) for childcare facilities
+     statewide from January 2019 to present
+   - Type A, Type B, and Type C citations issued, including:
+     * Facility number and name
+     * Date of citation
+     * Type of violation
+     * Description of violation
+     * Correction status
+     * Any penalties assessed
+
+3. FACILITY STATUS CHANGES
+   - Records of all childcare facility license revocations from 2019-present
+   - Records of all childcare facilities that voluntarily surrendered licenses 2019-present
+   - Facilities placed on probation 2019-present
+   - Pending enforcement actions
+
+4. SPECIFIC FACILITIES OF INTEREST
+   [IF REQUESTING SPECIFIC FACILITIES, LIST FACILITY NUMBERS HERE]
+   - Example: Facility #198400357 - All records including inspection reports,
+     complaints, violations, and correspondence
+
+FORMAT REQUESTED:
+I request that these records be provided in electronic format, preferably:
+- CSV or Excel spreadsheet format for tabular data
+- PDF for individual reports
+- Data should include all available fields/columns
+
+COST:
+If there are any fees for searching or copying these records, please inform me
+before fulfilling this request. I am willing to pay reasonable costs up to $[AMOUNT].
+
+RESPONSE:
+The California Public Records Act requires a response within 10 days. If you
+determine that any portion of the requested records is exempt from disclosure,
+please identify the specific exemption and provide any reasonably segregable
+non-exempt portions.
+
+If you have any questions, please contact me at the information provided above.
+
+Thank you for your assistance.
+
+Sincerely,
+
+[YOUR SIGNATURE]
+[YOUR NAME]
+
+=====================================
+NOTES FOR SUBMITTING:
+=====================================
+
+1. CDSS Public Records Request Portal:
+   https://www.cdss.ca.gov/inforesources/public-records-request
+
+2. You can also email:
+   OfficeoftheLegislativeandConstituent@dss.ca.gov
+
+3. For CACFP data specifically, you may also contact:
+   - California Department of Education, Nutrition Services Division
+   - Email: cacfp@cde.ca.gov
+
+4. Expected response time: 10 business days (may request extension)
+
+5. Costs: First 10 pages typically free, then $0.10-0.25/page
+   Electronic records are often provided at no cost
+
+=====================================
+ALTERNATIVE: CONTACT YOUR STATE LEGISLATOR
+=====================================
+
+State legislators can often expedite records requests. Find your representatives:
+https://findyourrep.legislature.ca.gov/
+
+=====================================
+HIGH-PRIORITY FACILITY NUMBERS TO REQUEST:
+=====================================
+
+Based on our fraud analysis, these facility numbers show the highest risk indicators
+and warrant detailed records review:
+
+RISK SCORE 10 (Highest Priority):
+- 197400271 - GIANT STEPS CHILD CARE CENTER (Long Beach)
+- 570200166 - SUPERIOR CHILDREN'S CENTER (Sacramento)
+- 281300121 - LITTLE SUNSHINE LEARNING CENTER (St. Helena)
+- 361200321 - CARING HEARTS CHILD DEV CTR (San Bernardino)
+- 343600247 - HAGGINWOOD ACADEMY (Sacramento)
+- 151300177 - BRIGHT FUTURES PRESCHOOL (Bakersfield)
+- 435700859 - TINKER LEARNING CENTER (Morgan Hill)
+
+[Add more facility numbers from PRIORITY_INVESTIGATION_LIST.csv as needed]
