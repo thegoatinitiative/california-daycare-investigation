@@ -222,8 +222,10 @@
         <div class="nav-links">
             <a href="daycare-investigation.html" class="active">Daycare Investigation</a>
             <a href="phone-network-map.html">Phone Networks</a>
+            <a href="address-network-map.html">Address Networks</a>
             <a href="ppp-norcal.html">PPP NorCal</a>
             <a href="ppp-socal.html">PPP SoCal</a>
+            <a href="resources.html">Resources</a>
         </div>
     </nav>
 
@@ -296,38 +298,63 @@
         </div>
     </div>
 
-    <div class="filter-bar">
-        <label>PPP Loan:</label>
-        <select id="pppFilter" onchange="filterCards()">
-            <option value="all">All</option>
-            <option value="yes">Has PPP</option>
-        </select>
-        <label>No Children:</label>
-        <select id="childrenFilter" onchange="filterCards()">
-            <option value="all">All</option>
-            <option value="YES">No Children</option>
-        </select>
-        <label>Violations:</label>
-        <select id="violationsFilter" onchange="filterCards()">
-            <option value="all">All</option>
-            <option value="yes">Has Violations</option>
-        </select>
-        <label>Risk:</label>
-        <select id="minRisk" onchange="filterCards()">
-            <option value="0">0+ (All)</option>
-            <option value="5" selected>5+</option>
-            <option value="7">7+</option>
-            <option value="9">9+</option>
-        </select>
-        <label>Status:</label>
-        <select id="statusFilter" onchange="filterCards()">
-            <option value="all">All</option>
-            <option value="CLOSED">Closed</option>
-            <option value="LICENSED">Open</option>
-        </select>
-        <label>City:</label>
-        <input type="text" id="cityFilter" placeholder="Filter..." oninput="filterCards()">
-        <span class="result-count"><span id="visibleCount">0</span> shown</span>
+    <div class="filter-bar" style="flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <label>Search:</label>
+            <input type="text" id="searchFilter" placeholder="Name, licensee, address..." oninput="filterCards()" style="width: 180px;">
+            <label>County:</label>
+            <select id="countyFilter" onchange="filterCards()">
+                <option value="all">All Counties</option>
+                <option value="LOS ANGELES">Los Angeles</option>
+                <option value="SAN DIEGO">San Diego</option>
+                <option value="ORANGE">Orange</option>
+                <option value="RIVERSIDE">Riverside</option>
+                <option value="SAN BERNARDINO">San Bernardino</option>
+                <option value="SANTA CLARA">Santa Clara</option>
+                <option value="ALAMEDA">Alameda</option>
+                <option value="SACRAMENTO">Sacramento</option>
+                <option value="FRESNO">Fresno</option>
+                <option value="KERN">Kern</option>
+            </select>
+            <label>Risk:</label>
+            <select id="minRisk" onchange="filterCards()">
+                <option value="0">0+ (All)</option>
+                <option value="5" selected>5+</option>
+                <option value="7">7+</option>
+                <option value="9">9+</option>
+            </select>
+            <label>Status:</label>
+            <select id="statusFilter" onchange="filterCards()">
+                <option value="all">All</option>
+                <option value="CLOSED">Closed</option>
+                <option value="LICENSED">Open</option>
+            </select>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+            <label>PPP:</label>
+            <select id="pppFilter" onchange="filterCards()">
+                <option value="all">All</option>
+                <option value="yes">Has PPP</option>
+            </select>
+            <label>No Children:</label>
+            <select id="childrenFilter" onchange="filterCards()">
+                <option value="all">All</option>
+                <option value="YES">No Children</option>
+            </select>
+            <label>Violations:</label>
+            <select id="violationsFilter" onchange="filterCards()">
+                <option value="all">All</option>
+                <option value="yes">Has Violations</option>
+            </select>
+            <label>Shared Phone:</label>
+            <select id="dupPhoneFilter" onchange="filterCards()">
+                <option value="all">All</option>
+                <option value="yes">Shared Phone</option>
+            </select>
+            <button onclick="exportToCSV()" style="background: #238636; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: 500;">Export CSV</button>
+            <button onclick="clearFilters()" style="background: #6c757d; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer;">Clear</button>
+            <span class="result-count"><span id="visibleCount">0</span> shown</span>
+        </div>
     </div>
     
     <div id="facilities-container">
@@ -23522,12 +23549,14 @@
         }
         
         function filterCards() {
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+            const countyFilter = document.getElementById('countyFilter').value;
             const pppFilter = document.getElementById('pppFilter').value;
             const childrenFilter = document.getElementById('childrenFilter').value;
             const violationsFilter = document.getElementById('violationsFilter').value;
+            const dupPhoneFilter = document.getElementById('dupPhoneFilter').value;
             const minRisk = parseInt(document.getElementById('minRisk').value);
             const statusFilter = document.getElementById('statusFilter').value;
-            const cityFilter = document.getElementById('cityFilter').value.toLowerCase();
 
             // If PPP filter is selected, show all risk levels
             const effectiveMinRisk = (pppFilter === 'yes') ? 0 : minRisk;
@@ -23540,13 +23569,59 @@
                 if (pppFilter !== 'all' && card.dataset.ppp !== 'yes') show = false;
                 if (childrenFilter !== 'all' && card.dataset.children !== childrenFilter) show = false;
                 if (violationsFilter !== 'all' && card.dataset.violations !== 'yes') show = false;
+                if (dupPhoneFilter !== 'all' && card.dataset.dupphone !== 'yes') show = false;
                 if (statusFilter !== 'all' && card.dataset.status !== statusFilter) show = false;
-                if (cityFilter && !card.dataset.city.includes(cityFilter)) show = false;
+                if (countyFilter !== 'all' && card.dataset.county !== countyFilter) show = false;
+                if (searchFilter) {
+                    const text = card.textContent.toLowerCase();
+                    if (!text.includes(searchFilter)) show = false;
+                }
                 card.style.display = show ? 'block' : 'none';
                 if (show) visibleCount++;
             });
             document.getElementById('visibleCount').textContent = visibleCount.toLocaleString();
         }
+
+        function clearFilters() {
+            document.getElementById('searchFilter').value = '';
+            document.getElementById('countyFilter').value = 'all';
+            document.getElementById('pppFilter').value = 'all';
+            document.getElementById('childrenFilter').value = 'all';
+            document.getElementById('violationsFilter').value = 'all';
+            document.getElementById('dupPhoneFilter').value = 'all';
+            document.getElementById('minRisk').value = '5';
+            document.getElementById('statusFilter').value = 'all';
+            filterCards();
+        }
+
+        function exportToCSV() {
+            const visibleCards = document.querySelectorAll('.facility-card[style*="display: block"], .facility-card:not([style*="display: none"])');
+            let csv = 'Facility Name,Licensee,Address,City,Status,Risk Score,PPP Loan,Capacity\\n';
+
+            visibleCards.forEach(card => {
+                if (card.style.display !== 'none') {
+                    const name = card.querySelector('.facility-name')?.textContent?.split('#')[0]?.trim() || '';
+                    const licensee = card.querySelector('.licensee')?.textContent || '';
+                    const addressDiv = card.querySelector('.detail-value')?.textContent || '';
+                    const city = card.dataset.city || '';
+                    const status = card.dataset.status || '';
+                    const risk = card.dataset.risk || '';
+                    const ppp = card.dataset.ppp === 'yes' ? 'Yes' : 'No';
+                    const capacity = card.querySelector('.detail-value:nth-of-type(2)')?.textContent || '';
+
+                    csv += `"${name}","${licensee}","${addressDiv}","${city}","${status}","${risk}","${ppp}","${capacity}"\\n`;
+                }
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'flagged_facilities_' + new Date().toISOString().split('T')[0] + '.csv';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
         document.addEventListener('DOMContentLoaded', filterCards);
 
         // Map initialization

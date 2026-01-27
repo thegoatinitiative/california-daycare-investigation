@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigator Resources | California Daycare Fraud Investigation</title>
+    <meta name="description" content="Resources for investigating childcare fraud in California. Public records requests, complaint filing, agency contacts, and investigation tools.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+            padding: 15px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 3px solid #e94560;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-links a {
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .nav-links a.active {
+            background: #e94560;
+            color: white;
+        }
+        .nav-links a:not(.active) {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        .nav-links a:hover:not(.active) {
+            background: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 768px) {
+            .site-nav { padding: 12px 15px; }
+            .nav-links { gap: 8px; }
+            .nav-links a { padding: 10px 16px; font-size: 13px; }
+        }
+        @media (max-width: 480px) {
+            body { padding-top: 100px; }
+            .nav-links a { padding: 8px 12px; font-size: 11px; }
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .card h2 {
+            color: #fff;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 {
+            color: #e94560;
+            font-size: 1em;
+            margin: 20px 0 10px 0;
+        }
+        .card p {
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .card ul {
+            margin-left: 20px;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        .card a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #d63850;
+            text-decoration: none;
+        }
+        .btn-secondary {
+            background: #238636;
+        }
+        .btn-secondary:hover {
+            background: #2ea043;
+        }
+        .template-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.85em;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .contact-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin: 10px 0;
+        }
+        .contact-item strong {
+            color: #fff;
+        }
+        .tip-form {
+            background: #21262d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .disclaimer {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        .disclaimer strong {
+            color: #f85149;
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-links">
+            <a href="daycare-investigation.html">Daycare Investigation</a>
+            <a href="phone-network-map.html">Phone Networks</a>
+            <a href="ppp-norcal.html">PPP NorCal</a>
+            <a href="ppp-socal.html">PPP SoCal</a>
+            <a href="resources.html" class="active">Resources</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Investigator Resources</h1>
+        <p class="subtitle">Tools and information for investigating childcare fraud in California</p>
+
+        <div class="disclaimer">
+            <strong>Important:</strong> This dashboard identifies patterns commonly associated with fraud but does not prove fraud occurred. Always conduct proper investigation and consult with appropriate authorities before taking action.
+        </div>
+
+        <div class="grid">
+            <!-- File a Complaint -->
+            <div class="card">
+                <h2>📋 File a Complaint</h2>
+                <p>If you suspect fraud or unsafe conditions at a childcare facility, you can file a complaint with the California Department of Social Services.</p>
+
+                <h3>Community Care Licensing Division (CCLD)</h3>
+                <p>CCLD investigates complaints about licensed childcare facilities including health, safety, and licensing violations.</p>
+                <ul>
+                    <li>Complaints can be made anonymously</li>
+                    <li>CCLD must investigate within 10 days</li>
+                    <li>You can track complaint status online</li>
+                </ul>
+                <a href="https://www.cdss.ca.gov/inforesources/community-care-licensing/file-a-complaint" target="_blank" class="btn">File a CCLD Complaint</a>
+
+                <h3>Report Fraud to the OIG</h3>
+                <p>For suspected financial fraud involving federal childcare funds (CCDF, CACFP), report to the Office of Inspector General.</p>
+                <a href="https://oig.hhs.gov/fraud/report-fraud/" target="_blank" class="btn btn-secondary">Report to HHS OIG</a>
+            </div>
+
+            <!-- Public Records Requests -->
+            <div class="card">
+                <h2>📄 Public Records Requests</h2>
+                <p>You can request detailed information about childcare facilities through California's Public Records Act.</p>
+
+                <h3>CACFP Reimbursement Data</h3>
+                <p>Request facility-level meal reimbursement data to identify potential billing fraud:</p>
+                <div class="template-box">California Department of Social Services
+Attention: Public Records Coordinator
+744 P Street, MS 8-14-737
+Sacramento, CA 95814
+Email: cdssfoia@dss.ca.gov
+
+RE: Public Records Act Request
+
+I request the following records pursuant to
+the California Public Records Act (Gov. Code
+§ 6250 et seq.):
+
+1. A list of all Child and Adult Care Food
+   Program (CACFP) participating childcare
+   centers for [COUNTY NAME] County
+
+2. Monthly meal reimbursement amounts by
+   facility for fiscal years 2020-2024
+
+3. Any audit findings or corrective action
+   plans related to CACFP facilities
+
+Please provide records in electronic format.</div>
+
+                <h3>Licensing Files</h3>
+                <p>Request detailed licensing history, inspection reports, and complaint records for specific facilities.</p>
+                <a href="https://www.cdss.ca.gov/inforesources/cdss-programs/community-care-licensing/public-records-requests" target="_blank" class="btn">CDSS Records Request Info</a>
+            </div>
+
+            <!-- Agency Contacts -->
+            <div class="card">
+                <h2>📞 Agency Contacts</h2>
+
+                <div class="contact-item">
+                    <strong>Community Care Licensing Division (CCLD)</strong><br>
+                    Licensing complaints and facility concerns<br>
+                    Phone: 1-844-538-8766<br>
+                    <a href="https://www.cdss.ca.gov/inforesources/community-care-licensing">cdss.ca.gov/ccl</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>California Dept. of Education - Nutrition Services</strong><br>
+                    CACFP program oversight<br>
+                    Phone: (916) 322-1016<br>
+                    <a href="https://www.cde.ca.gov/ls/nu/cc/">cde.ca.gov/cacfp</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>California Attorney General</strong><br>
+                    Large-scale fraud investigations<br>
+                    Phone: (916) 445-9555<br>
+                    <a href="https://oag.ca.gov/contact/general-comment-702">Submit a complaint</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>FBI - Los Angeles (Public Corruption)</strong><br>
+                    Federal fraud schemes<br>
+                    Phone: (310) 477-6565<br>
+                    <a href="https://tips.fbi.gov/">tips.fbi.gov</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>IRS Criminal Investigation</strong><br>
+                    Tax fraud related to PPP/EIDL loans<br>
+                    Phone: 1-800-366-4484<br>
+                    <a href="https://www.irs.gov/compliance/criminal-investigation">irs.gov/ci</a>
+                </div>
+            </div>
+
+            <!-- Research Tools -->
+            <div class="card">
+                <h2>🔍 Research Tools</h2>
+
+                <h3>Business Entity Lookup</h3>
+                <p>Verify business registrations and find connected entities:</p>
+                <ul>
+                    <li><a href="https://bizfileonline.sos.ca.gov/search/business" target="_blank">CA Secretary of State Business Search</a></li>
+                    <li><a href="https://www.ftb.ca.gov/help/business/entity-status-letter.asp" target="_blank">FTB Entity Status Letter</a></li>
+                </ul>
+
+                <h3>Property Records</h3>
+                <p>Verify facility addresses and ownership:</p>
+                <ul>
+                    <li><a href="https://assessor.lacounty.gov/homeowners/property-search" target="_blank">LA County Property Search</a></li>
+                    <li>Search "[County Name] assessor property search" for other counties</li>
+                </ul>
+
+                <h3>Court Records</h3>
+                <p>Check for related lawsuits or criminal cases:</p>
+                <ul>
+                    <li><a href="https://www.courts.ca.gov/find-my-court.htm" target="_blank">CA Courts Case Search</a></li>
+                    <li><a href="https://www.courtlistener.com/" target="_blank">CourtListener (Federal)</a></li>
+                </ul>
+
+                <h3>PPP Loan Data</h3>
+                <p>Search original SBA loan data:</p>
+                <ul>
+                    <li><a href="https://www.federalpay.org/paycheck-protection-program" target="_blank">FederalPay PPP Search</a></li>
+                    <li><a href="https://projects.propublica.org/coronavirus/bailouts/" target="_blank">ProPublica PPP Database</a></li>
+                </ul>
+            </div>
+
+            <!-- Submit a Tip -->
+            <div class="card">
+                <h2>💡 Submit a Tip</h2>
+                <p>Have information about potential childcare fraud in California? Submit an anonymous tip to help investigators.</p>
+
+                <div class="tip-form">
+                    <p style="margin-bottom: 15px;">Tips are reviewed by The GOAT Initiative and may be forwarded to appropriate authorities.</p>
+                    <p><strong>What to include:</strong></p>
+                    <ul style="margin-bottom: 15px;">
+                        <li>Facility name and location</li>
+                        <li>What you observed or know</li>
+                        <li>Dates and times if relevant</li>
+                        <li>Any documentation you have</li>
+                    </ul>
+                    <a href="https://forms.gle/PLACEHOLDER" target="_blank" class="btn">Submit Anonymous Tip</a>
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #8b949e;">
+                        Or email: tips@thegoatinitiative.org
+                    </p>
+                </div>
+            </div>
+
+            <!-- Understanding the Data -->
+            <div class="card">
+                <h2>📊 Understanding Our Data</h2>
+
+                <h3>Data Sources</h3>
+                <ul>
+                    <li><strong>Facility Data:</strong> CA Community Care Licensing Division (CCLD) public database</li>
+                    <li><strong>PPP Loans:</strong> SBA Paycheck Protection Program loan data</li>
+                    <li><strong>Violations:</strong> CCLD inspection and complaint records</li>
+                </ul>
+
+                <h3>Risk Score Methodology</h3>
+                <p>Our risk scores (1-10) are based on patterns from major fraud cases:</p>
+                <ul>
+                    <li><strong>COVID-Era License (2020-2022):</strong> +2 points</li>
+                    <li><strong>Closed/Inactive Status:</strong> +2 points</li>
+                    <li><strong>Short Operation (&lt;24 months):</strong> +3 points</li>
+                    <li><strong>Shared Phone Number:</strong> +2 points</li>
+                    <li><strong>Generic Name:</strong> +1 point</li>
+                </ul>
+
+                <h3>Limitations</h3>
+                <p>This analysis cannot detect:</p>
+                <ul>
+                    <li>Facilities that never obtained a license</li>
+                    <li>Fraud at facilities with no public red flags</li>
+                    <li>The actual amount of fraudulent claims</li>
+                </ul>
+                <p style="margin-top: 10px;">High risk scores indicate patterns worth investigating—they do not prove fraud.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; color: #8b949e; font-size: 0.9em;">
+            <p>Built by <a href="https://thegoatinitiative.org" target="_blank" style="color: #58a6ff;">The GOAT Initiative</a></p>
+            <p style="margin-top: 5px;">Data updated: January 2025</p>
+        </div>
+    </div>
+</body>
+</html>
