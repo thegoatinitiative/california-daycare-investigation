@@ -116,6 +116,183 @@
 </nav>
 
 <style>
+.info-panel {
+    position: fixed;
+    top: 75px;
+    left: 20px;
+    z-index: 9998;
+    background: rgba(22,27,34,0.95);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: 'Inter', sans-serif;
+    color: #c9d1d9;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    max-width: 340px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.info-panel h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.info-panel p {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.info-panel .highlight {
+    color: #e94560;
+    font-weight: 600;
+}
+.info-panel .stats-row {
+    display: flex;
+    gap: 15px;
+    margin: 12px 0;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+}
+.info-panel .stat {
+    text-align: center;
+    flex: 1;
+}
+.info-panel .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+.info-panel .stat-label {
+    font-size: 10px;
+    color: #8b949e;
+}
+.info-panel .fraud-case {
+    background: rgba(233, 69, 96, 0.1);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 12px;
+    font-size: 11px;
+}
+.info-panel .fraud-case strong {
+    color: #e94560;
+}
+.info-panel .legend {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 11px;
+}
+.info-panel .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+.info-panel .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e94560;
+}
+.info-panel .legend-line {
+    width: 24px;
+    height: 2px;
+    background: #e94560;
+    border-style: dashed;
+}
+.toggle-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #8b949e;
+    cursor: pointer;
+    font-size: 14px;
+}
+.toggle-panel:hover {
+    color: #fff;
+}
+.info-panel.collapsed .panel-content {
+    display: none;
+}
+.info-panel.collapsed {
+    padding: 12px 16px;
+}
+@media (max-width: 768px) {
+    .info-panel {
+        top: auto;
+        bottom: 20px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        padding: 12px 16px;
+    }
+    .info-panel h3 { font-size: 14px; }
+    .info-panel p { font-size: 11px; }
+    .info-panel .stat-value { font-size: 16px; }
+}
+@media (max-width: 480px) {
+    .info-panel {
+        bottom: 10px;
+        left: 5px;
+        right: 5px;
+        padding: 10px 12px;
+    }
+    .info-panel h3 { font-size: 13px; }
+    .info-panel .stats-row { gap: 10px; padding: 8px; }
+}
+</style>
+
+<div class="info-panel" id="infoPanel">
+    <button class="toggle-panel" onclick="document.getElementById('infoPanel').classList.toggle('collapsed'); this.textContent = this.textContent === '−' ? '+' : '−';">−</button>
+    <h3>📞 Phone Network Analysis</h3>
+    <div class="panel-content">
+        <p>This map shows <span class="highlight">daycare facilities that share the same phone number</span> with other licensed facilities. Lines connect facilities within the same phone network.</p>
+
+        <div class="stats-row">
+            <div class="stat">
+                <div class="stat-value">62</div>
+                <div class="stat-label">Phone Networks</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">187</div>
+                <div class="stat-label">Facilities</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3.0</div>
+                <div class="stat-label">Avg per Network</div>
+            </div>
+        </div>
+
+        <p><strong>Why This Matters:</strong> Multiple childcare facilities sharing a single phone number suggests they may be controlled by the same person or entity, which can indicate:</p>
+        <p style="margin-left: 10px; font-size: 11px;">
+            • Coordinated billing fraud schemes<br>
+            • Shell facilities used to inflate claims<br>
+            • Capacity manipulation to maximize reimbursements
+        </p>
+
+        <div class="fraud-case">
+            <strong>Feeding Our Future ($250M Fraud):</strong> Investigators found that fraudulent sites shared phone numbers, addresses, and bank accounts—allowing a small group to control dozens of "independent" facilities and submit false claims.
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot"></div>
+                <span>Facility location (click for details)</span>
+            </div>
+            <div class="legend-item">
+                <svg width="24" height="12"><line x1="0" y1="6" x2="24" y2="6" stroke="#e94560" stroke-width="2" stroke-dasharray="4,2"/></svg>
+                <span>Connection (same phone number)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
 .folium-map {
     position: fixed !important;
     top: 65px !important;
