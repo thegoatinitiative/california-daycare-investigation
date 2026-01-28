@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospice Fraud Investigation | California Medi-Cal Fraud</title>
+    <meta name="description" content="Investigation into hospice fraud in California's Medi-Cal and Medicare programs. Over $40 million in recent enforcement actions.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+            padding: 15px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 3px solid #9d4edd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-links a {
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .nav-links a.active {
+            background: #9d4edd;
+            color: white;
+        }
+        .nav-links a:not(.active) {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        .nav-links a:hover:not(.active) {
+            background: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 768px) {
+            .site-nav { padding: 12px 15px; }
+            .nav-links { gap: 8px; }
+            .nav-links a { padding: 10px 16px; font-size: 13px; }
+        }
+        @media (max-width: 480px) {
+            body { padding-top: 140px; }
+            .nav-links a { padding: 8px 12px; font-size: 11px; }
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        /* Stats banner */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #21262d 0%, #161b22 100%);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .stat-card.highlight {
+            border-color: #9d4edd;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2) 0%, #161b22 100%);
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #9d4edd;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+
+        /* Info panel */
+        .info-panel {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.15) 0%, rgba(157, 78, 221, 0.05) 100%);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .info-panel h2 {
+            color: #9d4edd;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        .info-panel p {
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .info-panel ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        /* Alert box */
+        .alert-box {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .alert-box h3 {
+            color: #f85149;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .alert-box p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* Section header */
+        .section-header {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #30363d;
+        }
+
+        /* Case cards */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .case-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+        .case-card:hover {
+            border-color: #9d4edd;
+            transform: translateY(-2px);
+        }
+        .case-card .amount {
+            font-size: 2em;
+            font-weight: 700;
+            color: #f85149;
+            margin-bottom: 5px;
+        }
+        .case-card .title {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .case-card .date {
+            color: #9d4edd;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        .case-card .description {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #8b949e;
+        }
+        .case-card .sentence {
+            background: rgba(248, 81, 73, 0.1);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-top: 12px;
+            font-size: 0.85em;
+            color: #f85149;
+        }
+
+        /* Red flags grid */
+        .red-flags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .red-flag-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-left: 4px solid #f85149;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .red-flag-card h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .red-flag-card p {
+            font-size: 0.9em;
+            color: #8b949e;
+            line-height: 1.6;
+        }
+
+        /* Resource cards */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .resource-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .resource-card h3 {
+            color: #fff;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .resource-card p {
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .resource-card ul {
+            margin-left: 20px;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        .resource-card a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            background: #9d4edd;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #7b2cbf;
+            text-decoration: none;
+        }
+        .btn-danger {
+            background: #da3633;
+        }
+        .btn-danger:hover {
+            background: #b62324;
+        }
+
+        /* Hotspot section */
+        .hotspot-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .hotspot-item {
+            background: rgba(157, 78, 221, 0.1);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .hotspot-item .county {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        .hotspot-item .detail {
+            color: #8b949e;
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #8b949e;
+            font-size: 0.9em;
+            border-top: 1px solid #30363d;
+        }
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-links">
+            <a href="daycare-investigation.html">Daycare</a>
+            <a href="phone-network-map.html">Phone Networks</a>
+            <a href="address-network-map.html">Address Networks</a>
+            <a href="owner-network-map.html">Owner Networks</a>
+            <a href="high-priority.html">High Priority</a>
+            <a href="hospice-investigation.html" class="active">Hospice Fraud</a>
+            <a href="ppp-norcal.html">PPP NorCal</a>
+            <a href="ppp-socal.html">PPP SoCal</a>
+            <a href="resources.html">Resources</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>California Hospice Fraud Investigation</h1>
+        <p class="subtitle">Tracking Medi-Cal and Medicare hospice fraud across California</p>
+
+        <!-- Stats Banner -->
+        <div class="stats-banner">
+            <div class="stat-card highlight">
+                <div class="stat-number">$43M+</div>
+                <div class="stat-label">Recent CA Fraud Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">46%</div>
+                <div class="stat-label">LA County Hospice Growth (vs 6% national decline)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12 yrs</div>
+                <div class="stat-label">Max Prison Sentence (Recent Cases)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Moratorium</div>
+                <div class="stat-label">CA Hospice Licensing Paused</div>
+            </div>
+        </div>
+
+        <!-- Alert Box -->
+        <div class="alert-box">
+            <h3>Why Hospice Fraud is Exploding</h3>
+            <p>California is ground zero for hospice fraud. While hospice providers declined 6% nationally, LA County alone saw a 46% increase. Fraudsters target hospice because: patients are often isolated, services are difficult to verify, and Medicare pays per-diem rates regardless of actual care provided. The state has implemented a licensing moratorium, but hundreds of questionable providers remain active.</p>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <h2>How Hospice Fraud Works</h2>
+            <p>Hospice fraud schemes in California typically involve one or more of these tactics:</p>
+            <ul>
+                <li><strong>Enrolling ineligible patients:</strong> Billing for hospice care for patients who don't have a terminal diagnosis (6 months or less to live)</li>
+                <li><strong>Kickback schemes:</strong> Paying patient recruiters, assisted living facilities, or marketers for patient referrals</li>
+                <li><strong>Phantom services:</strong> Billing for visits, medications, or equipment never provided</li>
+                <li><strong>Premature enrollment:</strong> Pushing patients into hospice care before medically appropriate</li>
+                <li><strong>Extended stays:</strong> Keeping patients enrolled beyond medical necessity to maximize per-diem payments</li>
+                <li><strong>Multiple provider billing:</strong> Enrolling same patient in multiple hospices simultaneously</li>
+            </ul>
+        </div>
+
+        <!-- Recent Enforcement Actions -->
+        <h2 class="section-header">Recent California Enforcement Actions</h2>
+        <div class="case-grid">
+            <div class="case-card">
+                <div class="amount">$16,000,000</div>
+                <div class="title">"House of Angels" Hospice Fraud Ring</div>
+                <div class="date">November 2025 - Glendale, CA</div>
+                <div class="description">
+                    Four California residents sentenced for operating a hospice fraud and money laundering scheme. The ring enrolled patients who weren't terminally ill and billed Medicare for services never provided.
+                </div>
+                <div class="sentence">Lead defendant: 12 years federal prison</div>
+            </div>
+
+            <div class="case-card">
+                <div class="amount">$10,600,000</div>
+                <div class="title">Patient Kickback Scheme</div>
+                <div class="date">August 2025 - Glendale, CA</div>
+                <div class="description">
+                    Woman sentenced to 9 years for running a hospice that paid kickbacks for patient referrals. Recruited patients from assisted living facilities and board-and-care homes regardless of terminal status.
+                </div>
+                <div class="sentence">9 years federal prison</div>
+            </div>
+
+            <div class="case-card">
+                <div class="amount">Multi-Million</div>
+                <div class="title">Fresno/Kern Counties Scheme</div>
+                <div class="date">June 2025 - Central Valley</div>
+                <div class="description">
+                    Southern California nurse indicted for running multi-million dollar hospice fraud spanning Fresno and Kern Counties. Case involves fraudulent certifications and billing for non-terminal patients.
+                </div>
+                <div class="sentence">Case pending</div>
+            </div>
+
+            <div class="case-card">
+                <div class="amount">$3,200,000</div>
+                <div class="title">Doctor-Involved Fraud</div>
+                <div class="date">December 2024 - Santa Paula, CA</div>
+                <div class="description">
+                    Doctor sentenced for certifying patients as terminally ill when they weren't. Part of larger scheme involving kickbacks for patient referrals to hospice providers.
+                </div>
+                <div class="sentence">2 years federal prison</div>
+            </div>
+
+            <div class="case-card">
+                <div class="amount">$9,200,000</div>
+                <div class="title">Hospice Civil Settlement</div>
+                <div class="date">2024 - Southern California</div>
+                <div class="description">
+                    Hospice provider agreed to pay $9.2 million to settle False Claims Act allegations related to billing for ineligible patients and inadequate care documentation.
+                </div>
+                <div class="sentence">Civil settlement</div>
+            </div>
+
+            <div class="case-card">
+                <div class="amount">$3,200,000</div>
+                <div class="title">Glendale/Lakewood Conviction</div>
+                <div class="date">December 2024</div>
+                <div class="description">
+                    Two defendants found guilty of hospice fraud involving kickbacks for patient referrals. Operated network of sham hospice providers billing for fabricated services.
+                </div>
+                <div class="sentence">Sentencing pending</div>
+            </div>
+        </div>
+
+        <!-- Fraud Hotspots -->
+        <h2 class="section-header">California Fraud Hotspots</h2>
+        <div class="info-panel">
+            <p>Based on enforcement actions and licensing data, these areas have the highest concentration of hospice fraud investigations:</p>
+            <div class="hotspot-list">
+                <div class="hotspot-item">
+                    <div class="county">Los Angeles County</div>
+                    <div class="detail">Highest volume of cases</div>
+                </div>
+                <div class="hotspot-item">
+                    <div class="county">Glendale</div>
+                    <div class="detail">Multiple fraud rings</div>
+                </div>
+                <div class="hotspot-item">
+                    <div class="county">Orange County</div>
+                    <div class="detail">Cross-border schemes</div>
+                </div>
+                <div class="hotspot-item">
+                    <div class="county">Fresno/Kern</div>
+                    <div class="detail">Central Valley clusters</div>
+                </div>
+                <div class="hotspot-item">
+                    <div class="county">San Diego</div>
+                    <div class="detail">Border region activity</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Red Flags -->
+        <h2 class="section-header">Red Flags for Hospice Fraud</h2>
+        <div class="red-flags-grid">
+            <div class="red-flag-card">
+                <h4>Aggressive Patient Recruitment</h4>
+                <p>Door-to-door solicitation, marketing at assisted living facilities, or offering gifts/incentives to enroll in hospice care.</p>
+            </div>
+            <div class="red-flag-card">
+                <h4>Rapid Growth / New Providers</h4>
+                <p>Hospices that opened during COVID-19 or experienced unusually rapid patient growth warrant extra scrutiny.</p>
+            </div>
+            <div class="red-flag-card">
+                <h4>Non-Terminal Patients Enrolled</h4>
+                <p>Patients who don't appear to have a terminal illness or who remain on hospice for years without decline.</p>
+            </div>
+            <div class="red-flag-card">
+                <h4>Minimal Actual Care</h4>
+                <p>Family reports little to no visits from hospice staff despite billing for regular services.</p>
+            </div>
+            <div class="red-flag-card">
+                <h4>Connections to Other Facilities</h4>
+                <p>Hospice owned by same people who own assisted living, board-and-care, or home health agencies (vertical integration for kickbacks).</p>
+            </div>
+            <div class="red-flag-card">
+                <h4>Shared Addresses / Phone Numbers</h4>
+                <p>Multiple hospice agencies operating from the same address or using the same contact information.</p>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <h2 class="section-header">Investigation Resources</h2>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h3>Report Hospice Fraud</h3>
+                <p>If you suspect a hospice is committing fraud, report it to these agencies:</p>
+                <ul>
+                    <li><a href="https://oig.hhs.gov/fraud/report-fraud/" target="_blank">HHS Office of Inspector General</a> - Medicare/Medicaid fraud</li>
+                    <li><a href="https://www.cdph.ca.gov/Programs/CHCQ/LCP/Pages/ComplaintForm.aspx" target="_blank">CA Dept. of Public Health</a> - Quality of care complaints</li>
+                    <li><a href="https://oag.ca.gov/contact/general-comment-702" target="_blank">CA Attorney General</a> - Large-scale fraud schemes</li>
+                    <li><strong>Medi-Cal Fraud Hotline:</strong> 1-800-822-6222</li>
+                </ul>
+                <a href="https://oig.hhs.gov/fraud/report-fraud/" target="_blank" class="btn btn-danger">Report Fraud Now</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>Verify a Hospice Provider</h3>
+                <p>Check if a hospice is properly licensed and certified:</p>
+                <ul>
+                    <li><a href="https://lfis.hcai.ca.gov/" target="_blank">CA Licensed Facility Information System (LFIS)</a> - Search hospice licenses</li>
+                    <li><a href="https://www.medicare.gov/care-compare/" target="_blank">Medicare Care Compare</a> - Quality ratings and inspection results</li>
+                    <li><a href="https://data.chhs.ca.gov/dataset/home-health-hospice-annual-utilization-report-complete-data-set" target="_blank">CHHS Hospice Utilization Data</a> - Annual utilization reports</li>
+                </ul>
+                <a href="https://lfis.hcai.ca.gov/" target="_blank" class="btn">Search Hospice Licenses</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>OIG Enforcement Actions</h3>
+                <p>Track ongoing hospice fraud prosecutions and settlements in California:</p>
+                <ul>
+                    <li>Searchable database of all HHS OIG enforcement actions</li>
+                    <li>Filter by state, fraud type, and amount</li>
+                    <li>Press releases with case details</li>
+                </ul>
+                <a href="https://oig.hhs.gov/fraud/enforcement/?text=hospice&state=CA" target="_blank" class="btn">View CA Hospice Cases</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>Data Sources</h3>
+                <p>Access raw data for your own analysis:</p>
+                <ul>
+                    <li><a href="https://data.chhs.ca.gov/dataset/home-health-hospice-annual-utilization-report-complete-data-set" target="_blank">CHHS Open Data Portal</a> - Hospice utilization data</li>
+                    <li><a href="https://data.cms.gov/provider-data/" target="_blank">CMS Provider Data</a> - Medicare provider information</li>
+                    <li><a href="https://oig.hhs.gov/reports-and-publications/workplan/" target="_blank">OIG Work Plan</a> - Ongoing investigations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="info-panel" style="margin-top: 40px; border-color: rgba(88, 166, 255, 0.3); background: linear-gradient(135deg, rgba(88, 166, 255, 0.15) 0%, rgba(88, 166, 255, 0.05) 100%);">
+            <h2 style="color: #58a6ff;">Coming Soon: Interactive Hospice Provider Map</h2>
+            <p>We're building an interactive map of California hospice providers with:</p>
+            <ul>
+                <li>All licensed hospice facilities in California</li>
+                <li>Cross-reference with enforcement actions</li>
+                <li>Ownership network analysis</li>
+                <li>Shared address/phone detection</li>
+                <li>Growth pattern analysis</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Have data or tips?</strong> Email us at tips@thegoatinitiative.org</p>
+        </div>
+
+        <div class="footer">
+            <p>Built by <a href="https://thegoatinitiative.org" target="_blank">The GOAT Initiative</a></p>
+            <p style="margin-top: 5px;">Data sources: HHS OIG, CHHS, HCAI | Updated: January 2025</p>
+            <p style="margin-top: 10px; font-size: 0.85em;">This dashboard identifies patterns commonly associated with fraud but does not prove fraud occurred.</p>
+        </div>
+    </div>
+</body>
+</html>
