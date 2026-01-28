@@ -63,7 +63,7 @@
     right: 0;
     z-index: 9999;
     background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
-    padding: 15px 20px;
+    padding: 12px 20px;
     font-family: 'Inter', sans-serif;
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     border-bottom: 3px solid #e94560;
@@ -73,36 +73,62 @@
 }
 .nav-links {
     display: flex;
-    gap: 15px;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.nav-links a {
-    padding: 12px 28px;
+.nav-category {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
     border-radius: 8px;
+    background: rgba(0,0,0,0.2);
+}
+.nav-category-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+}
+.nav-category.daycare .nav-category-label { background: #e94560; }
+.nav-category.hospice .nav-category-label { background: #9d4edd; }
+.nav-category.ppp .nav-category-label { background: #238636; }
+.nav-category.resources .nav-category-label { background: #58a6ff; }
+.nav-links a {
+    padding: 8px 14px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
     transition: all 0.2s;
-}
-.nav-links a.active {
-    background: #e94560;
     color: white;
-}
-.nav-links a:not(.active) {
     background: rgba(255,255,255,0.1);
-    color: white;
 }
-.nav-links a:hover:not(.active) {
+.nav-links a:hover { background: rgba(255,255,255,0.2); }
+.nav-category.daycare a.active { background: #e94560; }
+.nav-category.hospice a.active { background: #9d4edd; }
+.nav-category.ppp a.active { background: #238636; }
+.nav-category.resources a.active { background: #58a6ff; }
+.nav-divider {
+    width: 1px;
+    height: 30px;
     background: rgba(255,255,255,0.2);
+    margin: 0 4px;
 }
-@media (max-width: 768px) {
-    .site-nav { padding: 12px 15px; }
-    .nav-links { gap: 8px; }
-    .nav-links a { padding: 10px 16px; font-size: 13px; }
+@media (max-width: 900px) {
+    .site-nav { padding: 10px 15px; }
+    .nav-category { padding: 3px 6px; }
+    .nav-category-label { font-size: 9px; padding: 3px 6px; }
+    .nav-links a { padding: 6px 10px; font-size: 11px; }
+    .nav-divider { display: none; }
 }
-@media (max-width: 480px) {
-    .site-nav { padding: 10px 10px; }
-    .nav-links { gap: 5px; }
-    .nav-links a { padding: 8px 12px; font-size: 11px; }
+@media (max-width: 600px) {
+    .nav-category { flex-wrap: wrap; justify-content: center; }
 }
 .info-panel {
     position: fixed;
@@ -172,15 +198,30 @@
 
 <nav class="site-nav">
     <div class="nav-links">
-        <a href="daycare-investigation.html">Investigation</a>
-        <a href="phone-network-map.html">Phone Networks</a>
-        <a href="address-network-map.html" class="active">Address Networks</a>
-        <a href="owner-network-map.html">Owner Networks</a>
-        <a href="high-priority.html">High Priority</a>
-        <a href="hospice-investigation.html">Hospice Fraud</a>
-        <a href="ppp-norcal.html">PPP NorCal</a>
-        <a href="ppp-socal.html">PPP SoCal</a>
-        <a href="resources.html">Resources</a>
+        <div class="nav-category daycare">
+            <span class="nav-category-label">Daycare</span>
+            <a href="daycare-investigation.html">Dashboard</a>
+            <a href="phone-network-map.html">Phones</a>
+            <a href="address-network-map.html" class="active">Addresses</a>
+            <a href="owner-network-map.html">Owners</a>
+            <a href="high-priority.html">Priority</a>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-category hospice">
+            <span class="nav-category-label">Hospice</span>
+            <a href="hospice-investigation.html">Dashboard</a>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-category ppp">
+            <span class="nav-category-label">PPP</span>
+            <a href="ppp-norcal.html">NorCal</a>
+            <a href="ppp-socal.html">SoCal</a>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-category resources">
+            <span class="nav-category-label">Info</span>
+            <a href="resources.html">Resources</a>
+        </div>
     </div>
 </nav>
 
