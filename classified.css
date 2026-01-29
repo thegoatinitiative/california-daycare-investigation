@@ -5,26 +5,26 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #0d1117;
-    --bg-tertiary: #1a1f26;
-    --bg-card: rgba(20, 25, 32, 0.98);
+    --bg-primary: #101418;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #1e252e;
+    --bg-card: rgba(22, 27, 34, 0.98);
 
-    --accent-amber: #ffdd66;
-    --accent-green: #44ff77;
-    --accent-red: #ff5555;
-    --accent-blue: #55eeff;
-    --accent-purple: #dd88ff;
-    --accent-orange: #ffbb44;
+    --accent-amber: #d4a84b;
+    --accent-green: #4a9e6b;
+    --accent-red: #c75450;
+    --accent-blue: #5a9bcf;
+    --accent-purple: #9a7bbf;
+    --accent-orange: #cf8a45;
 
     --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-dim: #888888;
+    --text-secondary: #b0b8c4;
+    --text-dim: #6e7681;
 
-    --border-color: rgba(255, 221, 102, 0.5);
-    --glow-amber: 0 0 10px rgba(240, 192, 64, 0.5);
-    --glow-green: 0 0 10px rgba(0, 255, 65, 0.5);
-    --glow-red: 0 0 10px rgba(255, 42, 42, 0.5);
+    --border-color: rgba(180, 180, 180, 0.3);
+    --glow-amber: none;
+    --glow-green: none;
+    --glow-red: none;
 
     /* LARGE readable font sizes */
     --font-size-base: 20px;
@@ -130,11 +130,11 @@ body::after {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.nav-category.daycare .nav-category-label { background: var(--accent-red); box-shadow: var(--glow-red); }
-.nav-category.hospice .nav-category-label { background: var(--accent-purple); box-shadow: 0 0 10px rgba(191, 90, 242, 0.5); }
-.nav-category.homehealth .nav-category-label { background: var(--accent-orange); box-shadow: 0 0 10px rgba(255, 149, 0, 0.5); }
-.nav-category.ppp .nav-category-label { background: var(--accent-green); box-shadow: var(--glow-green); }
-.nav-category.resources .nav-category-label { background: var(--accent-blue); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+.nav-category.daycare .nav-category-label { background: var(--accent-red); }
+.nav-category.hospice .nav-category-label { background: var(--accent-purple); }
+.nav-category.homehealth .nav-category-label { background: var(--accent-orange); }
+.nav-category.ppp .nav-category-label { background: var(--accent-green); }
+.nav-category.resources .nav-category-label { background: var(--accent-blue); }
 
 .nav-links a {
     padding: 10px 16px;
@@ -303,8 +303,8 @@ body::after {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--accent-amber);
+    height: 4px;
+    background: #555;
 }
 
 .stat-box.critical::before { background: var(--accent-red); }
@@ -316,7 +316,7 @@ body::after {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 2.8em;
     font-weight: 800;
-    color: var(--accent-amber);
+    color: #fff;
 }
 
 .stat-box.critical .stat-value { color: var(--accent-red); }
@@ -326,7 +326,7 @@ body::after {
 
 .stat-label {
     font-size: 1em;
-    color: #ffffff;
+    color: #b0b8c4;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 10px;
@@ -443,9 +443,9 @@ body::after {
    DISCLAIMER / ALERT BOX
    ============================================ */
 .alert-box {
-    background: rgba(255, 187, 68, 0.15);
-    border: 2px solid var(--accent-orange);
-    border-left: 6px solid var(--accent-orange);
+    background: rgba(50, 55, 65, 0.8);
+    border: 1px solid #555;
+    border-left: 5px solid var(--accent-amber);
     padding: 24px 28px;
     margin-bottom: 28px;
     position: relative;
@@ -463,13 +463,12 @@ body::after {
     padding: 0 14px;
     font-size: 14px;
     font-weight: 700;
-    color: var(--accent-orange);
+    color: var(--accent-amber);
     letter-spacing: 2px;
 }
 
 .alert-box.danger {
-    background: rgba(255, 85, 85, 0.15);
-    border-color: var(--accent-red);
+    border-left-color: var(--accent-red);
 }
 
 .alert-box.danger::before {
@@ -604,9 +603,9 @@ body::after {
 }
 
 .filter-bar button {
-    background: var(--bg-tertiary);
-    border: 2px solid var(--accent-green);
-    color: var(--accent-green);
+    background: var(--accent-green);
+    border: none;
+    color: #fff;
     padding: 12px 22px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1.1em;
@@ -617,23 +616,22 @@ body::after {
 }
 
 .filter-bar button:hover {
-    background: rgba(68, 255, 119, 0.2);
+    background: #3a8e5b;
 }
 
 .filter-bar button.secondary {
-    border-color: #888;
-    color: #ccc;
+    background: #555;
+    color: #fff;
 }
 
 .filter-bar button.secondary:hover {
-    border-color: #aaa;
-    background: rgba(255, 255, 255, 0.1);
+    background: #666;
 }
 
 .result-count {
     font-size: 1.2em;
     font-weight: 700;
-    color: var(--accent-amber);
+    color: #fff;
 }
 
 /* ============================================
@@ -712,33 +710,30 @@ body::after {
     font-weight: 700;
     padding: 8px 16px;
     text-transform: uppercase;
-    background: rgba(68, 255, 119, 0.25);
-    border: 2px solid var(--accent-green);
-    color: var(--accent-green);
+    background: var(--accent-green);
+    border: none;
+    color: #fff;
 }
 
 .risk-badge.risk-10, .risk-badge.risk-9 {
-    background: rgba(255, 85, 85, 0.3);
-    border-color: var(--accent-red);
-    color: var(--accent-red);
+    background: var(--accent-red);
+    color: #fff;
 }
 
 .risk-badge.risk-8, .risk-badge.risk-7 {
-    background: rgba(255, 187, 68, 0.3);
-    border-color: var(--accent-orange);
-    color: var(--accent-orange);
+    background: var(--accent-orange);
+    color: #fff;
 }
 
 .risk-badge.risk-6, .risk-badge.risk-5 {
-    background: rgba(255, 221, 102, 0.3);
-    border-color: var(--accent-amber);
-    color: var(--accent-amber);
+    background: var(--accent-amber);
+    color: #000;
 }
 
 .no-children-badge {
-    background: rgba(255, 85, 85, 0.35);
-    border: 2px solid var(--accent-red);
-    color: var(--accent-red);
+    background: var(--accent-red);
+    border: none;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
     font-weight: 700;
@@ -746,9 +741,9 @@ body::after {
 }
 
 .dup-phone-badge {
-    background: rgba(221, 136, 255, 0.3);
-    border: 2px solid var(--accent-purple);
-    color: var(--accent-purple);
+    background: var(--accent-purple);
+    border: none;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
     font-weight: 700;
@@ -756,9 +751,9 @@ body::after {
 }
 
 .violations-badge {
-    background: rgba(255, 187, 68, 0.3);
-    border: 2px solid var(--accent-orange);
-    color: var(--accent-orange);
+    background: var(--accent-orange);
+    border: none;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
     font-weight: 700;
@@ -766,9 +761,9 @@ body::after {
 }
 
 .ppp-badge {
-    background: rgba(85, 238, 255, 0.3);
-    border: 2px solid var(--accent-blue);
-    color: var(--accent-blue);
+    background: var(--accent-blue);
+    border: none;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
     font-weight: 700;
@@ -787,7 +782,7 @@ body::after {
 
 .detail-label {
     font-size: 0.85em;
-    color: var(--accent-amber);
+    color: #8899aa;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -813,12 +808,12 @@ body::after {
 
 .action-btn {
     padding: 12px 20px;
-    border: 2px solid var(--border-color);
+    border: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
     text-decoration: none;
     color: #fff;
-    background: var(--bg-tertiary);
+    background: #3a4550;
     text-transform: uppercase;
     font-weight: 600;
     transition: all 0.2s;
@@ -826,19 +821,19 @@ body::after {
 }
 
 .action-btn:hover {
-    border-color: var(--accent-amber);
-    background: rgba(255, 221, 102, 0.2);
+    background: #4a5560;
 }
 
-.btn-maps { border-color: var(--accent-blue); color: var(--accent-blue); }
-.btn-maps:hover { background: rgba(85, 238, 255, 0.2); }
-.btn-sos { border-color: #aaa; color: #fff; }
-.btn-news { border-color: var(--accent-green); color: var(--accent-green); }
-.btn-news:hover { background: rgba(68, 255, 119, 0.2); }
-.btn-ccld { border-color: var(--accent-purple); color: var(--accent-purple); }
-.btn-ccld:hover { background: rgba(221, 136, 255, 0.2); }
-.btn-violations { border-color: var(--accent-orange); color: var(--accent-orange); }
-.btn-violations:hover { background: rgba(255, 187, 68, 0.2); }
+.btn-maps { background: var(--accent-blue); }
+.btn-maps:hover { background: #4a8bbf; }
+.btn-sos { background: #555; }
+.btn-sos:hover { background: #666; }
+.btn-news { background: var(--accent-green); }
+.btn-news:hover { background: #3a8e5b; }
+.btn-ccld { background: var(--accent-purple); }
+.btn-ccld:hover { background: #8a6baf; }
+.btn-violations { background: var(--accent-orange); }
+.btn-violations:hover { background: #bf7a35; }
 
 /* ============================================
    METHODOLOGY BOX
@@ -931,8 +926,8 @@ body::after {
 
 /* Flag Explanations */
 .flag-explanation {
-    background: rgba(255, 221, 102, 0.1);
-    border-left: 5px solid var(--accent-amber);
+    background: rgba(50, 55, 65, 0.6);
+    border-left: 5px solid #666;
     padding: 18px 22px;
     margin: 14px 0;
     font-size: 1.1em;
@@ -941,7 +936,6 @@ body::after {
 }
 
 .flag-explanation.danger {
-    background: rgba(255, 85, 85, 0.15);
     border-left-color: var(--accent-red);
 }
 
