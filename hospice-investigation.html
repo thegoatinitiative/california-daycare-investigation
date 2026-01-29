@@ -5,93 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospice Fraud Investigation | California Medi-Cal Alleged Fraud</title>
     <meta name="description" content="Investigation into alleged hospice fraud in California's Medi-Cal and Medicare programs. Over $40 million in recent enforcement actions.">
+    <link rel="stylesheet" href="classified.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
-            padding-top: 80px;
-        }
-
-        /* Navigation */
-        .site-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
-            padding: 12px 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            border-bottom: 3px solid #9d4edd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .nav-category {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 8px;
-            border-radius: 8px;
-            background: rgba(0,0,0,0.2);
-        }
-        .nav-category-label {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: white;
-        }
-        .nav-category.daycare .nav-category-label { background: #e94560; }
-        .nav-category.hospice .nav-category-label { background: #9d4edd; }
-        .nav-category.homehealth .nav-category-label { background: #f0883e; }
-        .nav-category.ppp .nav-category-label { background: #238636; }
-        .nav-category.resources .nav-category-label { background: #58a6ff; }
-        .nav-links a {
-            padding: 8px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s;
-            color: white;
-            background: rgba(255,255,255,0.1);
-        }
-        .nav-links a:hover { background: rgba(255,255,255,0.2); }
-        .nav-category.daycare a.active { background: #e94560; }
-        .nav-category.hospice a.active { background: #9d4edd; }
-        .nav-category.homehealth a.active { background: #f0883e; }
-        .nav-category.ppp a.active { background: #238636; }
-        .nav-category.resources a.active { background: #58a6ff; }
-        .nav-divider {
-            width: 1px;
-            height: 30px;
-            background: rgba(255,255,255,0.2);
-            margin: 0 4px;
-        }
-        @media (max-width: 900px) {
-            .site-nav { padding: 10px 15px; }
-            .nav-category { padding: 3px 6px; }
-            .nav-category-label { font-size: 9px; padding: 3px 6px; }
-            .nav-links a { padding: 6px 10px; font-size: 11px; }
-            .nav-divider { display: none; }
-        }
-        @media (max-width: 600px) {
-            body { padding-top: 130px; }
-            .nav-category { flex-wrap: wrap; justify-content: center; }
-        }
+        body { padding-top: 80px; }
+        @media (max-width: 600px) { body { padding-top: 130px; } }
 
         /* Main content */
         .container {
@@ -100,14 +17,19 @@
             padding: 30px 20px;
         }
         h1 {
-            color: #fff;
-            font-size: 2.2em;
+            font-family: 'Orbitron', monospace;
+            color: #bf5af2;
+            font-size: 2em;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(191, 90, 242, 0.5);
         }
         .subtitle {
             color: #8b949e;
-            font-size: 1.1em;
+            font-size: 1em;
             margin-bottom: 30px;
+            letter-spacing: 1px;
         }
 
         /* Stats banner */
@@ -118,39 +40,75 @@
             margin-bottom: 30px;
         }
         .stat-card {
-            background: linear-gradient(135deg, #21262d 0%, #161b22 100%);
-            border: 1px solid #30363d;
-            border-radius: 12px;
+            background: rgba(13, 17, 23, 0.95);
+            border: 1px solid rgba(240, 192, 64, 0.3);
             padding: 24px;
             text-align: center;
+            position: relative;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #bf5af2;
         }
         .stat-card.highlight {
-            border-color: #9d4edd;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2) 0%, #161b22 100%);
+            border-color: #bf5af2;
+        }
+        .stat-card.highlight::before {
+            background: #ff2a2a;
+            box-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
         }
         .stat-number {
-            font-size: 2.5em;
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2em;
             font-weight: 700;
-            color: #9d4edd;
+            color: #bf5af2;
             margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(191, 90, 242, 0.4);
+        }
+        .stat-card.highlight .stat-number {
+            color: #ff2a2a;
+            text-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
         }
         .stat-label {
             color: #8b949e;
-            font-size: 0.9em;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Info panel */
         .info-panel {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.15) 0%, rgba(157, 78, 221, 0.05) 100%);
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 12px;
+            background: rgba(13, 17, 23, 0.95);
+            border: 1px solid rgba(191, 90, 242, 0.3);
             padding: 25px;
             margin-bottom: 30px;
+            position: relative;
+        }
+        .info-panel::before {
+            content: 'INTELLIGENCE BRIEF';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #0a0a0f;
+            padding: 0 15px;
+            font-family: 'Orbitron', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            color: #bf5af2;
+            letter-spacing: 2px;
         }
         .info-panel h2 {
-            color: #9d4edd;
-            font-size: 1.3em;
+            font-family: 'Orbitron', monospace;
+            color: #bf5af2;
+            font-size: 1.1em;
             margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .info-panel p {
             line-height: 1.7;
@@ -163,18 +121,36 @@
 
         /* Alert box */
         .alert-box {
-            background: rgba(248, 81, 73, 0.1);
-            border: 1px solid rgba(248, 81, 73, 0.3);
-            border-radius: 12px;
+            background: rgba(255, 42, 42, 0.1);
+            border: 1px solid rgba(255, 42, 42, 0.4);
+            border-left: 4px solid #ff2a2a;
             padding: 20px;
             margin-bottom: 30px;
+            position: relative;
+        }
+        .alert-box::before {
+            content: 'WARNING';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #0a0a0f;
+            padding: 0 10px;
+            font-family: 'Orbitron', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            color: #ff2a2a;
+            letter-spacing: 2px;
         }
         .alert-box h3 {
-            color: #f85149;
+            font-family: 'Orbitron', monospace;
+            color: #ff2a2a;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1em;
         }
         .alert-box p {
             font-size: 0.95em;
@@ -183,11 +159,14 @@
 
         /* Section header */
         .section-header {
-            color: #fff;
-            font-size: 1.5em;
+            font-family: 'Orbitron', monospace;
+            color: #f0c040;
+            font-size: 1.3em;
             margin: 40px 0 20px 0;
             padding-bottom: 10px;
-            border-bottom: 2px solid #30363d;
+            border-bottom: 1px solid rgba(240, 192, 64, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* Case cards */
@@ -198,32 +177,49 @@
             margin-bottom: 30px;
         }
         .case-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
+            background: rgba(13, 17, 23, 0.95);
+            border: 1px solid rgba(240, 192, 64, 0.2);
             padding: 24px;
             transition: all 0.2s;
+            position: relative;
         }
+        .case-card::before,
+        .case-card::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #f0c040;
+            opacity: 0.5;
+        }
+        .case-card::before { top: 5px; left: 5px; border-right: none; border-bottom: none; }
+        .case-card::after { bottom: 5px; right: 5px; border-left: none; border-top: none; }
         .case-card:hover {
-            border-color: #9d4edd;
-            transform: translateY(-2px);
+            border-color: #bf5af2;
+            box-shadow: 0 0 20px rgba(191, 90, 242, 0.2);
         }
         .case-card .amount {
-            font-size: 2em;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8em;
             font-weight: 700;
-            color: #f85149;
+            color: #ff2a2a;
             margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 42, 42, 0.4);
         }
         .case-card .title {
-            color: #fff;
-            font-size: 1.1em;
+            font-family: 'Orbitron', monospace;
+            color: #e6edf3;
+            font-size: 0.95em;
             font-weight: 600;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .case-card .date {
-            color: #9d4edd;
-            font-size: 0.85em;
+            color: #bf5af2;
+            font-size: 0.8em;
             margin-bottom: 10px;
+            font-family: 'IBM Plex Mono', monospace;
         }
         .case-card .description {
             font-size: 0.9em;
@@ -231,12 +227,13 @@
             color: #8b949e;
         }
         .case-card .sentence {
-            background: rgba(248, 81, 73, 0.1);
-            border-radius: 6px;
+            background: rgba(255, 42, 42, 0.15);
+            border: 1px solid rgba(255, 42, 42, 0.3);
             padding: 8px 12px;
             margin-top: 12px;
-            font-size: 0.85em;
-            color: #f85149;
+            font-size: 0.8em;
+            color: #ff2a2a;
+            font-family: 'IBM Plex Mono', monospace;
         }
 
         /* Red flags grid */
@@ -247,18 +244,21 @@
             margin-bottom: 30px;
         }
         .red-flag-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-left: 4px solid #f85149;
-            border-radius: 8px;
+            background: rgba(13, 17, 23, 0.95);
+            border: 1px solid rgba(240, 192, 64, 0.2);
+            border-left: 4px solid #ff2a2a;
             padding: 20px;
         }
         .red-flag-card h4 {
-            color: #fff;
+            font-family: 'Orbitron', monospace;
+            color: #e6edf3;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .red-flag-card p {
             font-size: 0.9em;
@@ -273,18 +273,30 @@
             gap: 20px;
         }
         .resource-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
+            background: rgba(13, 17, 23, 0.95);
+            border: 1px solid rgba(240, 192, 64, 0.2);
             padding: 24px;
+            position: relative;
+        }
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #00d4ff;
         }
         .resource-card h3 {
-            color: #fff;
-            font-size: 1.1em;
+            font-family: 'Orbitron', monospace;
+            color: #e6edf3;
+            font-size: 0.95em;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .resource-card p {
             font-size: 0.9em;
@@ -297,33 +309,40 @@
             line-height: 1.8;
         }
         .resource-card a {
-            color: #58a6ff;
+            color: #00d4ff;
             text-decoration: none;
         }
         .resource-card a:hover {
             text-decoration: underline;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
         .btn {
             display: inline-block;
-            background: #9d4edd;
-            color: white;
+            background: transparent;
+            border: 1px solid #bf5af2;
+            color: #bf5af2;
             padding: 12px 24px;
-            border-radius: 8px;
             text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 0.85em;
             margin-top: 15px;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .btn:hover {
-            background: #7b2cbf;
+            background: rgba(191, 90, 242, 0.2);
+            box-shadow: 0 0 15px rgba(191, 90, 242, 0.4);
             text-decoration: none;
         }
         .btn-danger {
-            background: #da3633;
+            border-color: #ff2a2a;
+            color: #ff2a2a;
         }
         .btn-danger:hover {
-            background: #b62324;
+            background: rgba(255, 42, 42, 0.2);
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
         }
 
         /* Hotspot section */
@@ -334,20 +353,32 @@
             margin-top: 20px;
         }
         .hotspot-item {
-            background: rgba(157, 78, 221, 0.1);
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 8px;
+            background: rgba(191, 90, 242, 0.1);
+            border: 1px solid rgba(191, 90, 242, 0.3);
             padding: 15px;
             text-align: center;
+            position: relative;
+        }
+        .hotspot-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #bf5af2, transparent);
         }
         .hotspot-item .county {
-            color: #fff;
+            font-family: 'Orbitron', monospace;
+            color: #bf5af2;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .hotspot-item .detail {
             color: #8b949e;
-            font-size: 0.85em;
+            font-size: 0.8em;
             margin-top: 5px;
         }
 
@@ -356,13 +387,16 @@
             text-align: center;
             margin-top: 50px;
             padding: 30px;
-            color: #8b949e;
-            font-size: 0.9em;
-            border-top: 1px solid #30363d;
+            color: #484f58;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(240, 192, 64, 0.2);
         }
         .footer a {
-            color: #58a6ff;
+            color: #00d4ff;
             text-decoration: none;
+        }
+        .footer a:hover {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
     </style>
 </head>
@@ -403,8 +437,13 @@
     </nav>
 
     <div class="container">
-        <h1>California Hospice Fraud Investigation</h1>
-        <p class="subtitle">Tracking alleged Medi-Cal and Medicare hospice fraud across California</p>
+        <!-- Page Header -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="display: inline-block; padding: 8px 20px; border: 3px solid #ff2a2a; color: #ff2a2a; font-family: 'Orbitron', monospace; font-weight: 700; font-size: 14px; letter-spacing: 4px; transform: rotate(-2deg); margin-bottom: 20px; animation: pulse-glow 2s ease-in-out infinite;">CLASSIFIED</div>
+            <style>@keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 5px #ff2a2a, inset 0 0 5px rgba(255, 42, 42, 0.1); } 50% { box-shadow: 0 0 20px #ff2a2a, inset 0 0 10px rgba(255, 42, 42, 0.2); } }</style>
+            <h1>California Hospice Fraud Investigation</h1>
+            <p class="subtitle">CASE FILE: CA-HOSPICE-2024 // STATUS: ACTIVE // TRACKING ALLEGED MEDI-CAL & MEDICARE FRAUD</p>
+        </div>
 
         <!-- Stats Banner -->
         <div class="stats-banner">
