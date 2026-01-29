@@ -7,38 +7,38 @@
 :root {
     --bg-primary: #0a0a0f;
     --bg-secondary: #0d1117;
-    --bg-tertiary: #161b22;
-    --bg-card: rgba(13, 17, 23, 0.95);
+    --bg-tertiary: #1a1f26;
+    --bg-card: rgba(20, 25, 32, 0.98);
 
-    --accent-amber: #ffd054;
-    --accent-green: #22ff55;
-    --accent-red: #ff4444;
-    --accent-blue: #44ddff;
-    --accent-purple: #cc77ff;
-    --accent-orange: #ffaa22;
+    --accent-amber: #ffdd66;
+    --accent-green: #44ff77;
+    --accent-red: #ff5555;
+    --accent-blue: #55eeff;
+    --accent-purple: #dd88ff;
+    --accent-orange: #ffbb44;
 
-    --text-primary: #f0f4f8;
-    --text-secondary: #b0b8c4;
-    --text-dim: #6a7280;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-dim: #888888;
 
-    --border-color: rgba(240, 192, 64, 0.4);
+    --border-color: rgba(255, 221, 102, 0.5);
     --glow-amber: 0 0 10px rgba(240, 192, 64, 0.5);
     --glow-green: 0 0 10px rgba(0, 255, 65, 0.5);
     --glow-red: 0 0 10px rgba(255, 42, 42, 0.5);
 
-    /* Readable font sizes */
-    --font-size-base: 17px;
-    --font-size-sm: 15px;
-    --font-size-xs: 13px;
-    --font-size-lg: 20px;
-    --font-size-xl: 24px;
-    --line-height: 1.7;
+    /* LARGE readable font sizes */
+    --font-size-base: 20px;
+    --font-size-sm: 18px;
+    --font-size-xs: 16px;
+    --font-size-lg: 24px;
+    --font-size-xl: 28px;
+    --line-height: 1.8;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: var(--font-size-base);
     line-height: var(--line-height);
     background: var(--bg-primary);
@@ -47,26 +47,7 @@ body {
     position: relative;
 }
 
-/* Scan Lines Overlay */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.1) 2px,
-        rgba(0, 0, 0, 0.1) 4px
-    );
-    pointer-events: none;
-    z-index: 9998;
-}
-
-/* Grid Background */
+/* Subtle Grid Background - no scan lines */
 body::after {
     content: '';
     position: fixed;
@@ -75,9 +56,9 @@ body::after {
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(240, 192, 64, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(240, 192, 64, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(255, 221, 102, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 221, 102, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
     z-index: -1;
 }
@@ -140,13 +121,13 @@ body::after {
 .nav-category::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
 
 .nav-category-label {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 5px 10px;
+    padding: 6px 12px;
     color: #000;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .nav-category.daycare .nav-category-label { background: var(--accent-red); box-shadow: var(--glow-red); }
@@ -156,10 +137,10 @@ body::after {
 .nav-category.resources .nav-category-label { background: var(--accent-blue); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
 
 .nav-links a {
-    padding: 8px 14px;
+    padding: 10px 16px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     transition: all 0.2s;
     color: #fff;
     background: transparent;
@@ -224,20 +205,17 @@ body::after {
 }
 
 .page-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 2.2em;
-    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 2.5em;
+    font-weight: 800;
     color: var(--accent-amber);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: var(--glow-amber);
     margin-bottom: 15px;
 }
 
 .page-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1em;
-    letter-spacing: 1px;
+    color: #ccc;
+    font-size: 1.3em;
     line-height: 1.6;
 }
 
@@ -335,24 +313,24 @@ body::after {
 .stat-box.success::before { background: var(--accent-green); }
 
 .stat-value {
-    font-family: 'Orbitron', monospace;
-    font-size: 2.4em;
-    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 2.8em;
+    font-weight: 800;
     color: var(--accent-amber);
 }
 
-.stat-box.critical .stat-value { color: var(--accent-red); text-shadow: var(--glow-red); }
+.stat-box.critical .stat-value { color: var(--accent-red); }
 .stat-box.warning .stat-value { color: var(--accent-orange); }
 .stat-box.info .stat-value { color: var(--accent-blue); }
-.stat-box.success .stat-value { color: var(--accent-green); text-shadow: var(--glow-green); }
+.stat-box.success .stat-value { color: var(--accent-green); }
 
 .stat-label {
-    font-size: 0.9em;
-    color: var(--text-secondary);
+    font-size: 1em;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 8px;
-    font-weight: 500;
+    margin-top: 10px;
+    font-weight: 600;
 }
 
 /* Blinking Status Indicator */
@@ -465,32 +443,32 @@ body::after {
    DISCLAIMER / ALERT BOX
    ============================================ */
 .alert-box {
-    background: rgba(255, 149, 0, 0.1);
-    border: 1px solid var(--accent-orange);
-    border-left: 4px solid var(--accent-orange);
-    padding: 20px 24px;
-    margin-bottom: 25px;
+    background: rgba(255, 187, 68, 0.15);
+    border: 2px solid var(--accent-orange);
+    border-left: 6px solid var(--accent-orange);
+    padding: 24px 28px;
+    margin-bottom: 28px;
     position: relative;
-    font-size: 1em;
-    line-height: 1.7;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #fff;
 }
 
 .alert-box::before {
     content: 'NOTICE';
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 20px;
     background: var(--bg-primary);
-    padding: 0 12px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    padding: 0 14px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--accent-orange);
     letter-spacing: 2px;
 }
 
 .alert-box.danger {
-    background: rgba(255, 42, 42, 0.1);
+    background: rgba(255, 85, 85, 0.15);
     border-color: var(--accent-red);
 }
 
@@ -602,11 +580,10 @@ body::after {
 }
 
 .filter-bar label {
-    font-size: 0.9em;
-    color: var(--text-primary);
+    font-size: 1em;
+    color: #fff;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .filter-bar select,
@@ -614,50 +591,47 @@ body::after {
     background: var(--bg-primary);
     border: 2px solid var(--border-color);
     color: #fff;
-    padding: 10px 14px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1em;
+    padding: 12px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.1em;
 }
 
 .filter-bar select:focus,
 .filter-bar input:focus {
     outline: none;
     border-color: var(--accent-amber);
-    box-shadow: 0 0 8px rgba(240, 192, 64, 0.4);
+    box-shadow: 0 0 10px rgba(255, 221, 102, 0.5);
 }
 
 .filter-bar button {
     background: var(--bg-tertiary);
     border: 2px solid var(--accent-green);
     color: var(--accent-green);
-    padding: 10px 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1em;
+    padding: 12px 22px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.1em;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .filter-bar button:hover {
-    background: rgba(0, 255, 65, 0.15);
-    box-shadow: var(--glow-green);
+    background: rgba(68, 255, 119, 0.2);
 }
 
 .filter-bar button.secondary {
-    border-color: var(--text-dim);
-    color: var(--text-secondary);
+    border-color: #888;
+    color: #ccc;
 }
 
 .filter-bar button.secondary:hover {
-    border-color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: none;
+    border-color: #aaa;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .result-count {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 700;
     color: var(--accent-amber);
 }
@@ -708,24 +682,22 @@ body::after {
 }
 
 .facility-name {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.15em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.3em;
     font-weight: 700;
     color: #fff;
-    letter-spacing: 0.5px;
 }
 
 .fac-number {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
-    color: var(--text-dim);
-    margin-left: 8px;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-left: 10px;
 }
 
 .licensee {
-    font-size: 0.95em;
+    font-size: 1.1em;
     color: var(--text-secondary);
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .badges {
@@ -735,100 +707,95 @@ body::after {
 }
 
 .risk-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1em;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 8px 16px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    background: rgba(0, 255, 65, 0.2);
+    background: rgba(68, 255, 119, 0.25);
     border: 2px solid var(--accent-green);
     color: var(--accent-green);
 }
 
 .risk-badge.risk-10, .risk-badge.risk-9 {
-    background: rgba(255, 42, 42, 0.25);
+    background: rgba(255, 85, 85, 0.3);
     border-color: var(--accent-red);
     color: var(--accent-red);
-    animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .risk-badge.risk-8, .risk-badge.risk-7 {
-    background: rgba(255, 149, 0, 0.25);
+    background: rgba(255, 187, 68, 0.3);
     border-color: var(--accent-orange);
     color: var(--accent-orange);
 }
 
 .risk-badge.risk-6, .risk-badge.risk-5 {
-    background: rgba(240, 192, 64, 0.25);
+    background: rgba(255, 221, 102, 0.3);
     border-color: var(--accent-amber);
     color: var(--accent-amber);
 }
 
 .no-children-badge {
-    background: rgba(255, 42, 42, 0.3);
+    background: rgba(255, 85, 85, 0.35);
     border: 2px solid var(--accent-red);
     color: var(--accent-red);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1em;
     font-weight: 700;
-    padding: 6px 12px;
-    letter-spacing: 1px;
+    padding: 8px 16px;
 }
 
 .dup-phone-badge {
-    background: rgba(191, 90, 242, 0.25);
+    background: rgba(221, 136, 255, 0.3);
     border: 2px solid var(--accent-purple);
     color: var(--accent-purple);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1em;
     font-weight: 700;
-    padding: 6px 12px;
-    letter-spacing: 1px;
+    padding: 8px 16px;
 }
 
 .violations-badge {
-    background: rgba(255, 149, 0, 0.25);
+    background: rgba(255, 187, 68, 0.3);
     border: 2px solid var(--accent-orange);
     color: var(--accent-orange);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1em;
     font-weight: 700;
-    padding: 6px 12px;
-    letter-spacing: 1px;
+    padding: 8px 16px;
 }
 
 .ppp-badge {
-    background: rgba(0, 212, 255, 0.25);
+    background: rgba(85, 238, 255, 0.3);
     border: 2px solid var(--accent-blue);
     color: var(--accent-blue);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1em;
     font-weight: 700;
-    padding: 6px 12px;
-    letter-spacing: 1px;
+    padding: 8px 16px;
 }
 
 .facility-details {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-    margin-bottom: 15px;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(240, 192, 64, 0.1);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 18px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 221, 102, 0.2);
 }
 
 .detail-label {
-    font-size: 0.8em;
-    color: var(--text-secondary);
+    font-size: 0.85em;
+    color: var(--accent-amber);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    font-weight: 600;
 }
 
 .detail-value {
-    font-size: 1em;
+    font-size: 1.1em;
     color: #fff;
 }
 
@@ -845,33 +812,33 @@ body::after {
 }
 
 .action-btn {
-    padding: 10px 16px;
+    padding: 12px 20px;
     border: 2px solid var(--border-color);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1em;
     text-decoration: none;
     color: #fff;
     background: var(--bg-tertiary);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 600;
     transition: all 0.2s;
     cursor: pointer;
 }
 
 .action-btn:hover {
     border-color: var(--accent-amber);
-    background: rgba(240, 192, 64, 0.15);
+    background: rgba(255, 221, 102, 0.2);
 }
 
 .btn-maps { border-color: var(--accent-blue); color: var(--accent-blue); }
-.btn-maps:hover { background: rgba(0, 212, 255, 0.15); }
-.btn-sos { border-color: var(--text-secondary); color: #fff; }
+.btn-maps:hover { background: rgba(85, 238, 255, 0.2); }
+.btn-sos { border-color: #aaa; color: #fff; }
 .btn-news { border-color: var(--accent-green); color: var(--accent-green); }
-.btn-news:hover { background: rgba(0, 255, 65, 0.15); }
+.btn-news:hover { background: rgba(68, 255, 119, 0.2); }
 .btn-ccld { border-color: var(--accent-purple); color: var(--accent-purple); }
-.btn-ccld:hover { background: rgba(191, 90, 242, 0.15); }
+.btn-ccld:hover { background: rgba(221, 136, 255, 0.2); }
 .btn-violations { border-color: var(--accent-orange); color: var(--accent-orange); }
-.btn-violations:hover { background: rgba(255, 149, 0, 0.15); }
+.btn-violations:hover { background: rgba(255, 187, 68, 0.2); }
 
 /* ============================================
    METHODOLOGY BOX
@@ -925,39 +892,36 @@ body::after {
 .risk-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 15px 0;
-    font-size: 1em;
+    margin: 20px 0;
+    font-size: 1.1em;
 }
 
 .risk-table th,
 .risk-table td {
-    padding: 14px 18px;
+    padding: 16px 20px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
 
 .risk-table th {
     background: rgba(0, 0, 0, 0.3);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 700;
     color: var(--accent-amber);
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .risk-table td {
-    color: var(--text-primary);
-    line-height: 1.6;
+    color: #fff;
+    line-height: 1.7;
 }
 
 .points {
     display: inline-block;
     background: var(--accent-red);
     color: #000;
-    padding: 4px 12px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.95em;
+    padding: 6px 14px;
+    font-size: 1em;
     font-weight: 700;
 }
 
@@ -967,17 +931,17 @@ body::after {
 
 /* Flag Explanations */
 .flag-explanation {
-    background: rgba(240, 192, 64, 0.1);
-    border-left: 4px solid var(--accent-amber);
-    padding: 14px 18px;
-    margin: 12px 0;
-    font-size: 1em;
-    color: var(--text-primary);
-    line-height: 1.6;
+    background: rgba(255, 221, 102, 0.1);
+    border-left: 5px solid var(--accent-amber);
+    padding: 18px 22px;
+    margin: 14px 0;
+    font-size: 1.1em;
+    color: #fff;
+    line-height: 1.7;
 }
 
 .flag-explanation.danger {
-    background: rgba(255, 42, 42, 0.1);
+    background: rgba(255, 85, 85, 0.15);
     border-left-color: var(--accent-red);
 }
 
