@@ -10,27 +10,37 @@
     --bg-tertiary: #161b22;
     --bg-card: rgba(13, 17, 23, 0.95);
 
-    --accent-amber: #f0c040;
-    --accent-green: #00ff41;
-    --accent-red: #ff2a2a;
-    --accent-blue: #00d4ff;
-    --accent-purple: #bf5af2;
-    --accent-orange: #ff9500;
+    --accent-amber: #ffd054;
+    --accent-green: #22ff55;
+    --accent-red: #ff4444;
+    --accent-blue: #44ddff;
+    --accent-purple: #cc77ff;
+    --accent-orange: #ffaa22;
 
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --text-dim: #484f58;
+    --text-primary: #f0f4f8;
+    --text-secondary: #b0b8c4;
+    --text-dim: #6a7280;
 
-    --border-color: rgba(240, 192, 64, 0.3);
+    --border-color: rgba(240, 192, 64, 0.4);
     --glow-amber: 0 0 10px rgba(240, 192, 64, 0.5);
     --glow-green: 0 0 10px rgba(0, 255, 65, 0.5);
     --glow-red: 0 0 10px rgba(255, 42, 42, 0.5);
+
+    /* Readable font sizes */
+    --font-size-base: 17px;
+    --font-size-sm: 15px;
+    --font-size-xs: 13px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+    --line-height: 1.7;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
     background: var(--bg-primary);
     color: var(--text-primary);
     min-height: 100vh;
@@ -130,13 +140,13 @@ body::after {
 .nav-category::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
 
 .nav-category-label {
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 4px 8px;
-    color: var(--bg-primary);
-    font-family: 'Orbitron', monospace;
+    padding: 5px 10px;
+    color: #000;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 .nav-category.daycare .nav-category-label { background: var(--accent-red); box-shadow: var(--glow-red); }
@@ -146,12 +156,12 @@ body::after {
 .nav-category.resources .nav-category-label { background: var(--accent-blue); box-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
 
 .nav-links a {
-    padding: 6px 12px;
+    padding: 8px 14px;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 11px;
+    font-weight: 600;
+    font-size: 13px;
     transition: all 0.2s;
-    color: var(--text-primary);
+    color: #fff;
     background: transparent;
     border: 1px solid transparent;
     text-transform: uppercase;
@@ -215,19 +225,20 @@ body::after {
 
 .page-title {
     font-family: 'Orbitron', monospace;
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 700;
     color: var(--accent-amber);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-shadow: var(--glow-amber);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .page-subtitle {
     color: var(--text-secondary);
-    font-size: 0.9em;
+    font-size: 1.1em;
     letter-spacing: 1px;
+    line-height: 1.6;
 }
 
 /* ============================================
@@ -325,7 +336,7 @@ body::after {
 
 .stat-value {
     font-family: 'Orbitron', monospace;
-    font-size: 2em;
+    font-size: 2.4em;
     font-weight: 700;
     color: var(--accent-amber);
 }
@@ -336,11 +347,12 @@ body::after {
 .stat-box.success .stat-value { color: var(--accent-green); text-shadow: var(--glow-green); }
 
 .stat-label {
-    font-size: 0.75em;
+    font-size: 0.9em;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 5px;
+    margin-top: 8px;
+    font-weight: 500;
 }
 
 /* Blinking Status Indicator */
@@ -456,20 +468,22 @@ body::after {
     background: rgba(255, 149, 0, 0.1);
     border: 1px solid var(--accent-orange);
     border-left: 4px solid var(--accent-orange);
-    padding: 15px 20px;
+    padding: 20px 24px;
     margin-bottom: 25px;
     position: relative;
+    font-size: 1em;
+    line-height: 1.7;
 }
 
 .alert-box::before {
     content: 'NOTICE';
     position: absolute;
-    top: -10px;
+    top: -12px;
     left: 20px;
     background: var(--bg-primary);
-    padding: 0 10px;
-    font-family: 'Orbitron', monospace;
-    font-size: 10px;
+    padding: 0 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
     font-weight: 700;
     color: var(--accent-orange);
     letter-spacing: 2px;
@@ -576,48 +590,49 @@ body::after {
 .filter-bar::before {
     content: 'QUERY PARAMETERS';
     position: absolute;
-    top: -10px;
+    top: -12px;
     left: 20px;
     background: var(--bg-primary);
-    padding: 0 10px;
-    font-family: 'Orbitron', monospace;
-    font-size: 9px;
+    padding: 0 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
     font-weight: 600;
     color: var(--accent-blue);
     letter-spacing: 2px;
 }
 
 .filter-bar label {
-    font-size: 0.75em;
-    color: var(--text-secondary);
+    font-size: 0.9em;
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .filter-bar select,
 .filter-bar input {
     background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    color: #fff;
+    padding: 10px 14px;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-size: 1em;
 }
 
 .filter-bar select:focus,
 .filter-bar input:focus {
     outline: none;
     border-color: var(--accent-amber);
-    box-shadow: 0 0 5px rgba(240, 192, 64, 0.3);
+    box-shadow: 0 0 8px rgba(240, 192, 64, 0.4);
 }
 
 .filter-bar button {
     background: var(--bg-tertiary);
-    border: 1px solid var(--accent-green);
+    border: 2px solid var(--accent-green);
     color: var(--accent-green);
-    padding: 8px 15px;
+    padding: 10px 18px;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85em;
+    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
@@ -625,7 +640,7 @@ body::after {
 }
 
 .filter-bar button:hover {
-    background: rgba(0, 255, 65, 0.1);
+    background: rgba(0, 255, 65, 0.15);
     box-shadow: var(--glow-green);
 }
 
@@ -636,13 +651,14 @@ body::after {
 
 .filter-bar button.secondary:hover {
     border-color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: none;
 }
 
 .result-count {
-    font-family: 'Orbitron', monospace;
-    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.1em;
+    font-weight: 700;
     color: var(--accent-amber);
 }
 
@@ -692,25 +708,24 @@ body::after {
 }
 
 .facility-name {
-    font-family: 'Orbitron', monospace;
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--text-primary);
-    text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #fff;
     letter-spacing: 0.5px;
 }
 
 .fac-number {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7em;
+    font-size: 0.85em;
     color: var(--text-dim);
     margin-left: 8px;
 }
 
 .licensee {
-    font-size: 0.8em;
+    font-size: 0.95em;
     color: var(--text-secondary);
-    margin-top: 3px;
+    margin-top: 5px;
 }
 
 .badges {
@@ -720,100 +735,101 @@ body::after {
 }
 
 .risk-badge {
-    font-family: 'Orbitron', monospace;
-    font-size: 0.7em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
     background: rgba(0, 255, 65, 0.2);
-    border: 1px solid var(--accent-green);
+    border: 2px solid var(--accent-green);
     color: var(--accent-green);
 }
 
 .risk-badge.risk-10, .risk-badge.risk-9 {
-    background: rgba(255, 42, 42, 0.2);
+    background: rgba(255, 42, 42, 0.25);
     border-color: var(--accent-red);
     color: var(--accent-red);
     animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .risk-badge.risk-8, .risk-badge.risk-7 {
-    background: rgba(255, 149, 0, 0.2);
+    background: rgba(255, 149, 0, 0.25);
     border-color: var(--accent-orange);
     color: var(--accent-orange);
 }
 
 .risk-badge.risk-6, .risk-badge.risk-5 {
-    background: rgba(240, 192, 64, 0.2);
+    background: rgba(240, 192, 64, 0.25);
     border-color: var(--accent-amber);
     color: var(--accent-amber);
 }
 
 .no-children-badge {
     background: rgba(255, 42, 42, 0.3);
-    border: 1px solid var(--accent-red);
+    border: 2px solid var(--accent-red);
     color: var(--accent-red);
-    font-family: 'Orbitron', monospace;
-    font-size: 0.7em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 12px;
     letter-spacing: 1px;
 }
 
 .dup-phone-badge {
-    background: rgba(191, 90, 242, 0.2);
-    border: 1px solid var(--accent-purple);
+    background: rgba(191, 90, 242, 0.25);
+    border: 2px solid var(--accent-purple);
     color: var(--accent-purple);
-    font-family: 'Orbitron', monospace;
-    font-size: 0.7em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 12px;
     letter-spacing: 1px;
 }
 
 .violations-badge {
-    background: rgba(255, 149, 0, 0.2);
-    border: 1px solid var(--accent-orange);
+    background: rgba(255, 149, 0, 0.25);
+    border: 2px solid var(--accent-orange);
     color: var(--accent-orange);
-    font-family: 'Orbitron', monospace;
-    font-size: 0.7em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 12px;
     letter-spacing: 1px;
 }
 
 .ppp-badge {
-    background: rgba(0, 212, 255, 0.2);
-    border: 1px solid var(--accent-blue);
+    background: rgba(0, 212, 255, 0.25);
+    border: 2px solid var(--accent-blue);
     color: var(--accent-blue);
-    font-family: 'Orbitron', monospace;
-    font-size: 0.7em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85em;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 12px;
     letter-spacing: 1px;
 }
 
 .facility-details {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 12px;
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(240, 192, 64, 0.1);
 }
 
 .detail-label {
-    font-size: 0.65em;
-    color: var(--text-dim);
+    font-size: 0.8em;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 2px;
 }
 
 .detail-value {
-    font-size: 0.85em;
-    color: var(--text-primary);
+    font-size: 1em;
+    color: #fff;
 }
 
 .detail-value.flag { color: var(--accent-red); }
@@ -829,28 +845,33 @@ body::after {
 }
 
 .action-btn {
-    padding: 6px 12px;
-    border: 1px solid var(--border-color);
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75em;
+    font-size: 0.9em;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #fff;
     background: var(--bg-tertiary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 .action-btn:hover {
     border-color: var(--accent-amber);
-    background: rgba(240, 192, 64, 0.1);
+    background: rgba(240, 192, 64, 0.15);
 }
 
 .btn-maps { border-color: var(--accent-blue); color: var(--accent-blue); }
-.btn-sos { border-color: var(--text-secondary); }
+.btn-maps:hover { background: rgba(0, 212, 255, 0.15); }
+.btn-sos { border-color: var(--text-secondary); color: #fff; }
 .btn-news { border-color: var(--accent-green); color: var(--accent-green); }
+.btn-news:hover { background: rgba(0, 255, 65, 0.15); }
 .btn-ccld { border-color: var(--accent-purple); color: var(--accent-purple); }
+.btn-ccld:hover { background: rgba(191, 90, 242, 0.15); }
 .btn-violations { border-color: var(--accent-orange); color: var(--accent-orange); }
+.btn-violations:hover { background: rgba(255, 149, 0, 0.15); }
 
 /* ============================================
    METHODOLOGY BOX
@@ -905,37 +926,38 @@ body::after {
     width: 100%;
     border-collapse: collapse;
     margin: 15px 0;
-    font-size: 0.85em;
+    font-size: 1em;
 }
 
 .risk-table th,
 .risk-table td {
-    padding: 12px 15px;
+    padding: 14px 18px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
 
 .risk-table th {
     background: rgba(0, 0, 0, 0.3);
-    font-family: 'Orbitron', monospace;
-    font-size: 0.8em;
-    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9em;
+    font-weight: 700;
     color: var(--accent-amber);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .risk-table td {
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
 .points {
     display: inline-block;
     background: var(--accent-red);
-    color: var(--bg-primary);
-    padding: 2px 10px;
-    font-family: 'Orbitron', monospace;
-    font-size: 0.85em;
+    color: #000;
+    padding: 4px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95em;
     font-weight: 700;
 }
 
@@ -947,10 +969,11 @@ body::after {
 .flag-explanation {
     background: rgba(240, 192, 64, 0.1);
     border-left: 4px solid var(--accent-amber);
-    padding: 12px 15px;
-    margin: 10px 0;
-    font-size: 0.85em;
-    color: var(--text-secondary);
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 1em;
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
 .flag-explanation.danger {
