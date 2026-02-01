@@ -1008,53 +1008,56 @@ body::after {
         padding-top: 8px !important;
     }
 
-    /* NAVIGATION - Not fixed, scrolls with page */
+    /* NAVIGATION - Compact horizontal scroll */
     .site-nav {
         position: relative !important;
         top: auto !important;
-        padding: 8px !important;
-        margin-bottom: 12px !important;
+        padding: 6px !important;
+        margin-bottom: 10px !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
     }
     .site-nav::before {
         display: none !important;
     }
 
-    /* Nav links - simple grid layout */
+    /* Nav links - single horizontal row */
     .nav-links {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 6px !important;
-    }
-
-    /* Each category section */
-    .nav-category {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)) !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
         gap: 4px !important;
-        padding: 8px !important;
-        background: #1a2332 !important;
-        border-radius: 6px !important;
-        margin-bottom: 4px !important;
+        min-width: max-content !important;
     }
 
-    /* Category labels */
+    /* Each category - inline */
+    .nav-category {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 2px !important;
+        padding: 4px !important;
+        background: transparent !important;
+        border: none !important;
+    }
+    .nav-category::before,
+    .nav-category::after {
+        display: none !important;
+    }
+
+    /* Hide category labels on mobile */
     .nav-category-label {
-        grid-column: 1 / -1 !important;
-        font-size: 10px !important;
-        padding: 4px 8px !important;
-        margin-bottom: 4px !important;
+        display: none !important;
     }
 
-    /* Nav links - big tap targets */
+    /* Nav links - compact pills */
     .nav-links a,
     .nav-category a {
-        font-size: 12px !important;
-        padding: 10px 8px !important;
-        text-align: center !important;
-        min-height: 44px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        font-size: 11px !important;
+        padding: 8px 10px !important;
+        white-space: nowrap !important;
+        border-radius: 4px !important;
+        background: #1a2332 !important;
+        min-height: 36px !important;
     }
 
     .nav-divider {
@@ -1063,9 +1066,8 @@ body::after {
 
     /* GOAT link */
     .nav-links > a[href*="thegoatinitiative"] {
-        grid-column: 1 / -1 !important;
-        font-size: 11px !important;
-        padding: 8px !important;
+        font-size: 10px !important;
+        padding: 8px 10px !important;
     }
 
     /* Page title */
