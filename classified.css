@@ -1060,6 +1060,33 @@ body::after {
         min-height: 36px !important;
     }
 
+    /* Color-code each category for easy differentiation */
+    .nav-category.daycare a {
+        background: rgba(199, 84, 80, 0.3) !important;
+        border-left: 3px solid #c75450 !important;
+        color: #ff9999 !important;
+    }
+    .nav-category.hospice a {
+        background: rgba(154, 123, 191, 0.3) !important;
+        border-left: 3px solid #9a7bbf !important;
+        color: #d4b8ff !important;
+    }
+    .nav-category.homehealth a {
+        background: rgba(207, 138, 69, 0.3) !important;
+        border-left: 3px solid #cf8a45 !important;
+        color: #ffcc99 !important;
+    }
+    .nav-category.ppp a {
+        background: rgba(74, 158, 107, 0.3) !important;
+        border-left: 3px solid #4a9e6b !important;
+        color: #99ffbb !important;
+    }
+    .nav-category.resources a {
+        background: rgba(90, 155, 207, 0.3) !important;
+        border-left: 3px solid #5a9bcf !important;
+        color: #99ccff !important;
+    }
+
     .nav-divider {
         display: none !important;
     }
